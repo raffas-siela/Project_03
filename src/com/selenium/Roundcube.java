@@ -28,5 +28,11 @@ public class Roundcube
         driver.findElement(By.id("confirm_password")).sendKeys(password);
         // wypełnienie "birthday-day"
         driver.findElement(By.name("birthday-day")).sendKeys("25");
+        // wypełnienie "birthday-month"
+        Select month = new Select(driver.findElement(By.name("birthday-month")));
+        month.selectByVisibleText("February");
+        // wypełnienie "birthday-year"
+        Select year = new Select(driver.findElement(By.name("birthday-year")));
+        year.selectByIndex(42);
         }
     }
