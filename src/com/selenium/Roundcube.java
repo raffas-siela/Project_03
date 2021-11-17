@@ -52,6 +52,5 @@ public class Roundcube
         driver.findElement(By.id("rcmloginsubmit")).click();
 
         System.out.println("Rejestracja zakończona pomyślnie");
-
         }
     }
