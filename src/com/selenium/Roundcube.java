@@ -34,5 +34,24 @@ public class Roundcube
         // wypełnienie "birthday-year"
         Select year = new Select(driver.findElement(By.name("birthday-year")));
         year.selectByIndex(42);
+        //uzupełnienie gender
+        driver.findElement(By.xpath("//input[@value='M']")).click();
+        //wypełnienie "phone"
+        driver.findElement(By.xpath("//input[@name='phone']")).sendKeys(phone);
+        //driver.findElement(By.name("phone")).sendKeys(phone);
+        //rejestracja
+        driver.findElement(By.id("rcmloginsubmit")).click();
+
+        //logowanie do poczty
+        driver.get("https://selenium.waw.pl/roundcube");
+        //podaj login
+        driver.findElement(By.id("rcmloginuser")).sendKeys(user);
+        //podaj hasło
+        driver.findElement(By.id("rcmloginpwd")).sendKeys(password);
+        //logowanie
+        driver.findElement(By.id("rcmloginsubmit")).click();
+
+        System.out.println("Rejestracja zakończona pomyślnie");
+
         }
     }
