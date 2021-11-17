@@ -41,6 +41,8 @@ public class Roundcube
         //driver.findElement(By.name("phone")).sendKeys(phone);
         //rejestracja
         driver.findElement(By.id("rcmloginsubmit")).click();
+        System.out.println("Rejestracja zakończona pomyślnie");
+
 
         //logowanie do poczty
         driver.get("https://selenium.waw.pl/roundcube");
@@ -50,7 +52,8 @@ public class Roundcube
         driver.findElement(By.id("rcmloginpwd")).sendKeys(password);
         //logowanie
         driver.findElement(By.id("rcmloginsubmit")).click();
+        System.out.println("Logowanie zakończone pomyślnie");
 
-        System.out.println("Rejestracja zakończona pomyślnie");
         }
+
     }
