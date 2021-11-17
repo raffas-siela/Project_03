@@ -47,7 +47,6 @@ public class Roundcube
         driver.findElement(By.id("rcmloginsubmit")).click();
         System.out.println("Rejestracja zakończona pomyślnie");
 
-
         //logowanie do poczty
         driver.get("https://selenium.waw.pl/roundcube");
         //podaj login
@@ -59,14 +58,15 @@ public class Roundcube
         driver.findElement(By.id("rcmloginsubmit")).click();
         System.out.println("Logowanie zakończone pomyślnie");
 
-
-
-        //utwórz nowy mail
-        driver.findElement(By.xpath("//a[@title='Utwórz nową wiadomość']")).click();
-        driver.findElement(By.id("_to")).sendKeys(user);
-        driver.findElement(By.id("compose-subject")).sendKeys("wysyłka maila utomat");
-        driver.findElement(By.id("composebody")).sendKeys("To jest wiadomość testowa.");
-        driver.findElement(By.id("rcmbtn107")).click();
+        for(int i = 0; i < 10; i++)
+        {
+            //utwórz nowy mail
+            driver.findElement(By.xpath("//a[@title='Utwórz nową wiadomość']")).click();
+            driver.findElement(By.id("_to")).sendKeys(user);
+            driver.findElement(By.id("compose-subject")).sendKeys("wysyłka maila utomat");
+            driver.findElement(By.id("composebody")).sendKeys("To jest wiadomość testowa.");
+            driver.findElement(By.id("rcmbtn107")).click();
+        }
         }
 
     }
