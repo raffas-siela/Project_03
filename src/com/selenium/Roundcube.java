@@ -2,6 +2,9 @@ package com.selenium;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
+
+import java.util.concurrent.TimeUnit;
+
 public class Roundcube
     {
         String login = "sm1017";
@@ -39,6 +42,7 @@ public class Roundcube
         //wypełnienie "phone"
         driver.findElement(By.xpath("//input[@name='phone']")).sendKeys(phone);
         //driver.findElement(By.name("phone")).sendKeys(phone);
+
         //rejestracja
         driver.findElement(By.id("rcmloginsubmit")).click();
         System.out.println("Rejestracja zakończona pomyślnie");
@@ -50,10 +54,19 @@ public class Roundcube
         driver.findElement(By.id("rcmloginuser")).sendKeys(user);
         //podaj hasło
         driver.findElement(By.id("rcmloginpwd")).sendKeys(password);
+
         //logowanie
         driver.findElement(By.id("rcmloginsubmit")).click();
         System.out.println("Logowanie zakończone pomyślnie");
 
+
+
+        //utwórz nowy mail
+        driver.findElement(By.xpath("//a[@title='Utwórz nową wiadomość']")).click();
+        driver.findElement(By.id("_to")).sendKeys(user);
+        driver.findElement(By.id("compose-subject")).sendKeys("wysyłka maila utomat");
+        driver.findElement(By.id("composebody")).sendKeys("To jest wiadomość testowa.");
+        driver.findElement(By.id("rcmbtn107")).click();
         }
 
     }
