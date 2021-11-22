@@ -4,7 +4,8 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
-import
+import java.io.File;
+import java.io.IOException;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -80,7 +81,8 @@ public class Roundcube
 
             //zrób screenshot
                 File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-                FileHandler.cop (screenshot, new File("C:\\Users\\Rafał\\Documents\\DOKUMENTY\\IT\\PROJECT_3_automaty_tools\\screenshots_RoundCube\\screen.png"))
+                FileHandler.copy()
+                FileHandler.copy  (screenshot, new File("C:\\Users\\Rafał\\Documents\\DOKUMENTY\\IT\\PROJECT_3_automaty_tools\\screenshots_RoundCube\\screen.png"));
             driver.findElement(By.id("rcmbtn107")).click();
             }
         }
