@@ -1,9 +1,14 @@
 package com.selenium;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
+import
 
+import java.io.File;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.FileHandler;
 
 public class Roundcube
     {
@@ -58,19 +63,25 @@ public class Roundcube
         driver.findElement(By.id("rcmloginsubmit")).click();
         System.out.println("Logowanie zakończone pomyślnie");
 
-        Thread.sleep(2000);
+
 
         //pętla
-            for(int i = 1; i<5; i++)
+
+        for(int i = 0; i<5; i++)
             {
+                Thread.sleep(3000);
                 //utwórz nowy mail
-                mailTitle = mailTitle + 1;
+                mailTitle = mailTitle + i;
                 driver.findElement(By.xpath("//a[@title='Utwórz nową wiadomość']")).click();
                 driver.findElement(By.id("_to")).sendKeys(user);
 
                 driver.findElement(By.id("compose-subject")).sendKeys(mailTitle);
             driver.findElement(By.id("composebody")).sendKeys("To jest wiadomość testowa.");
-                driver.findElement(By.id("rcmbtn107")).click();
+
+            //zrób screenshot
+                File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+                FileHandler.cop (screenshot, new File("C:\\Users\\Rafał\\Documents\\DOKUMENTY\\IT\\PROJECT_3_automaty_tools\\screenshots_RoundCube\\screen.png"))
+            driver.findElement(By.id("rcmbtn107")).click();
             }
         }
 
