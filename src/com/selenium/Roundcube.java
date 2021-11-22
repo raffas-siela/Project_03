@@ -11,9 +11,9 @@ public class Roundcube
         String password = "sm1017";
         String phone = "060317090814";
         String user = login + "@selenium.waw.pl";
+        String mailTitle = "mail testowy nr_";
 
-        public void CreateNewUser()
-        {
+        public void CreateNewUser() throws InterruptedException {
         //ścieżka do chromedriver
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\Rafał\\Desktop\\auto\\chromedriver\\chromedriver.exe");
         ChromeDriver driver = new ChromeDriver();
@@ -58,15 +58,20 @@ public class Roundcube
         driver.findElement(By.id("rcmloginsubmit")).click();
         System.out.println("Logowanie zakończone pomyślnie");
 
-        for(int i = 0; i < 10; i++)
-        {
-            //utwórz nowy mail
-            driver.findElement(By.xpath("//a[@title='Utwórz nową wiadomość']")).click();
-            driver.findElement(By.id("_to")).sendKeys(user);
-            driver.findElement(By.id("compose-subject")).sendKeys("wysyłka maila utomat");
+        Thread.sleep(2000);
+
+        //pętla
+            for(int i = 1; i<5; i++)
+            {
+                //utwórz nowy mail
+                mailTitle = mailTitle + 1;
+                driver.findElement(By.xpath("//a[@title='Utwórz nową wiadomość']")).click();
+                driver.findElement(By.id("_to")).sendKeys(user);
+
+                driver.findElement(By.id("compose-subject")).sendKeys(mailTitle);
             driver.findElement(By.id("composebody")).sendKeys("To jest wiadomość testowa.");
-            driver.findElement(By.id("rcmbtn107")).click();
-        }
+                driver.findElement(By.id("rcmbtn107")).click();
+            }
         }
 
     }
