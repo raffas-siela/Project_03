@@ -81,9 +81,9 @@ public class Roundcube
 
             //zrób screenshot
                 File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-                FileHandler.copy()
-                FileHandler.copy  (screenshot, new File("C:\\Users\\Rafał\\Documents\\DOKUMENTY\\IT\\PROJECT_3_automaty_tools\\screenshots_RoundCube\\screen.png"));
-            driver.findElement(By.id("rcmbtn107")).click();
+                FileHandler.copy(screenshot, new File("C:\\Users\\Rafał\\Documents\\DOKUMENTY\\IT\\PROJECT_3_automaty_tools\\screenshots_RoundCube\\screen.png"));
+
+                driver.findElement(By.id("rcmbtn107")).click();
             }
         }
 
