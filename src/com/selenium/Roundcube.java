@@ -80,8 +80,8 @@ public class Roundcube
             driver.findElement(By.id("composebody")).sendKeys("To jest wiadomość testowa.");
 
             //zrób screenshot
-                File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-                FileHandler.copy(screenshot, new File("C:\\Users\\Rafał\\Documents\\DOKUMENTY\\IT\\PROJECT_3_automaty_tools\\screenshots_RoundCube\\screen.png"));
+                //File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+                //FileHandler.copy(screenshot, new File("C:\\Users\\Rafał\\Documents\\DOKUMENTY\\IT\\PROJECT_3_automaty_tools\\screenshots_RoundCube\\screen.png"));
 
                 driver.findElement(By.id("rcmbtn107")).click();
             }
